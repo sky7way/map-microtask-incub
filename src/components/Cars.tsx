@@ -9,12 +9,18 @@ type CarsPropsType = {
 
 
 export const Cars = (props: CarListPropsType) => {
-    const MapCars = props.cars.map((el, index) =>
-        <li key={index + 1}>{`${el.manufacturer} ${el.model}`}</li>
-    )
+    const MapCars = props.cars.map((el, index) => {
+        return (
+            <tr>
+                <th>{index + 1}.</th>
+                <th>{el.manufacturer}</th>
+                <th>{el.model}</th>
+            </tr>
+        );
+    })
     return (
-        <ul>
+        <table className={'border'}>
             {MapCars}
-        </ul>
+        </table>
     )
 }
